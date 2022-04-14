@@ -1,10 +1,12 @@
 import "./App.css";
 import "antd/dist/antd.min.css";
+
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutesComponent from "./routes/index";
 import { Provider } from "react-redux";
 import { persistor, store } from "redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import Header from "components/layout/header";
 function App() {
   return (
     <div className="App">

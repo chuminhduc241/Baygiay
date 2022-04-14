@@ -13,7 +13,7 @@ const AppRoutesComponent = () => {
     <div>
       <Switch>
         <PublicRoute path="/add" component={NewProduct} />
-        <PrivateRoute path={ROUTES.HOMEPAGE} exact component={Homepage} />
+        <PublicRoute path={ROUTES.HOMEPAGE} exact component={Homepage} />
         <PublicRoute path={ROUTES.LOGIN} component={Login} />
         <PublicRoute path={ROUTES.ACTIVATION} component={ActivationEmail} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
