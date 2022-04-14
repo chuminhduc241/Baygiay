@@ -1,0 +1,33 @@
+.login{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 16px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    background-image: url('https://pic.tripcdn.com/flight_v2/home/flight_home_bg_new.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    Form{
+        padding: 30px;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.6);
+    background-color: rgba(240, 248, 255, 0.6);
+    border-radius: 6px;
+    padding: 50px!important;
+        h2{
+            text-align: center;
+        }
+        label{
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    
+}
