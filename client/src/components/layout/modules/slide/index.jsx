@@ -1,25 +1,30 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import { useTheme } from "@mui/material/styles";
+import giay5 from "assets/images/giay5.jpg";
+import giay6 from "assets/images/giay6.jpg";
+import slide1 from "assets/images/slide1.jpg";
+import * as React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import giay5 from "../../../../assets/images/giay5.jpg"
-import giay6 from "../../../../assets/images/giay6.jpg"
-import "./style.scss"
+import "./style.scss";
+
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
     label: {
-      text1: "New for",
-      text2: "Snewker"
+      text1: "30% OFF",
+      text2: "Sneaker"
+    },
+    imgPath:
+      slide1
+  },
+  {
+    label: {
+      text1: "X2022",
+      text2: "trendy"
     },
     imgPath:
       giay5
@@ -27,7 +32,7 @@ const images = [
   {
     label: {
       text1: "New for",
-      text2: "TUyefn"
+      text2: "sport"
     },
     imgPath:
     giay6
@@ -40,13 +45,7 @@ function Slide() {
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+ 
 
   const handleStepChange = (step) => {
     setActiveStep(step);
@@ -73,7 +72,8 @@ function Slide() {
                   sx={{
                     display: "block",
                     overflow: "hidden",
-                    width: "100%"
+                    width: "100%",
+                    
                   }}
                   src={step.imgPath}
                   alt={step.label}
@@ -86,7 +86,6 @@ function Slide() {
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
-         
         />
       </Box>
     </div>

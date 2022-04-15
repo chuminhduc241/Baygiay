@@ -29,7 +29,7 @@ export class HttpClient {
     };
     this.axiosInstance = axios.create(configs);
     this.axiosInstance.interceptors.response.use(
-      (response) => response,
+      (response) => response.data,
       async (error) => {
         const config = error.config;
         const status = error?.response?.status;
