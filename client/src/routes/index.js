@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import ActivationEmail from "pages/activationEmail";
 import NewProduct from "components/admin/NewProduct";
+import DetailProductPage from "pages/detail-product";
 const AppRoutesComponent = () => {
   return (
     <div>
@@ -17,6 +18,8 @@ const AppRoutesComponent = () => {
         <PublicRoute path={ROUTES.LOGIN} component={Login} />
         <PublicRoute path={ROUTES.ACTIVATION} component={ActivationEmail} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
+        <PublicRoute path={ROUTES.REGISTER} component={Register} />
+        <PublicRoute path={ROUTES.DETAILPRODUCT} component={DetailProductPage} />
       </Switch>
     </div>
   );
