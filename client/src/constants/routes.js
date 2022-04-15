@@ -7,4 +7,5 @@ export const ROUTES = {
   DETAILFLIGHT: "/detailflight/:id",
   LISTFLIGHT: "/listfilght",
   ACTIVATION: "/auth/active-email/:activation_token",
+  DETAILPRODUCT: "/detail-product"
 };
