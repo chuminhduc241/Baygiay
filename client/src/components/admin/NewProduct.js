@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import "./style.scss";
 const NewProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -46,7 +46,7 @@ const NewProduct = () => {
     });
   };
   return (
-    <div>
+    <div className="new-product">
       <h3>Create Product</h3>
       <div className="form-group">
         <label htmlFor="name">Tên sản phẩm</label>
