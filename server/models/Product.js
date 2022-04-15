@@ -16,6 +16,18 @@ const productSchema = mongoose.Schema(
       required: [true, "Please Enter product Price"],
       maxLength: [8, "Price cannot exceed 8 characters"],
     },
+    isdiscount: {
+      type: Boolean,
+      default: false,
+    },
+    discount: {
+      type: Number,
+      default: 0,
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
     sex: { type: String, required: true },
     color: { type: Array, required: true },
     images: [
@@ -34,12 +46,6 @@ const productSchema = mongoose.Schema(
     category: {
       type: String,
       required: [true, "Please Enter Product Category"],
-    },
-    stock: {
-      type: Number,
-      required: [true, "Please Enter product Stock"],
-      maxLength: [4, "Stock cannot exceed 4 characters"],
-      default: 1,
     },
     numOfReviews: {
       type: Number,

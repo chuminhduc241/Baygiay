@@ -1,15 +1,14 @@
-import Slide from "components/layout/modules/slide";
+import Slide from "pages/modules/slide";
 import React from "react";
 import giay4 from "assets/images/giay4.jpg";
 import "./style.scss";
 import banner1 from "assets/images/banner1.jpg";
 import banner2 from "assets/images/banner2.jpg";
-import Products from "components/layout/modules/products";
+import Products from "pages/modules/products";
 const Homepage = () => {
   return (
     <>
       <Slide />
-
       <div className="grid wide banner-container">
         <div className="row">
           <div className="col l-4">

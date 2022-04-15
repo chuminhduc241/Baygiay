@@ -14,6 +14,7 @@ const AppRoutesComponent = () => {
       <Switch>
         <PublicRoute path="/add" component={NewProduct} />
         <PublicRoute path={ROUTES.HOMEPAGE} exact component={Homepage} />
+        <PublicRoute path={ROUTES.DETAIL} exact component={} />
         <PublicRoute path={ROUTES.LOGIN} component={Login} />
         <PublicRoute path={ROUTES.ACTIVATION} component={ActivationEmail} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
