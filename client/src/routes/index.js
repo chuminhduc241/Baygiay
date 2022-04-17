@@ -10,6 +10,7 @@ import ActivationEmail from "pages/activationEmail";
 import NewProduct from "components/admin/NewProduct";
 import DetailProductPage from "pages/detail-product";
 import DetailProduct from "pages/detail-product";
+import Profile from "pages/Profile";
 const AppRoutesComponent = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const AppRoutesComponent = () => {
         <PublicRoute path={ROUTES.ACTIVATION} component={ActivationEmail} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
+        <PublicRoute path={ROUTES.ACCOUNT} component={Profile} />
         <PublicRoute
           path={ROUTES.DETAILPRODUCT}
           component={DetailProductPage}
