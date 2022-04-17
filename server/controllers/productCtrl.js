@@ -44,7 +44,7 @@ class APIfeatures {
 
   paginating() {
     const page = this.queryString.page * 1 || 1;
-    const limit = this.queryString.limit * 1 || 9;
+    const limit = this.queryString.limit * 1 || 2;
     const skip = (page - 1) * limit;
     this.query = this.query.skip(skip).limit(limit);
     return this;
@@ -53,15 +53,21 @@ class APIfeatures {
 const productCtrl = {
   getAllProduct: async (req, res) => {
     try {
+      const productLength = new APIfeatures(
+        Products.find(),
+        req.query
+      ).filtering();
+      const lengthProduct = await productLength.query;
+      console.log(lengthProduct);
       const features = new APIfeatures(Products.find(), req.query)
         .filtering()
         .sorting()
         .paginating();
       const products = await features.query;
       res.status(200).json({
+        result: lengthProduct.length,
         success: true,
         products,
-        result: products.length,
       });
     } catch (error) {
       res.status(500).json({
@@ -71,22 +77,23 @@ const productCtrl = {
   },
   detailProduct: async (req, res) => {
     const product = await Products.findById(req.params.id);
-
     if (!product) {
       return next(new ErrorHander("Product not found", 404));
     }
-
     res.status(200).json({
       success: true,
       product,
     });
   },
   createProduct: async (req, res) => {
+    const newdiscout = new discout({
+      discout,
+    });
+    await newdiscout.save();
     try {
       const { name, description, price, sex, color, size, stock, category } =
         req.body;
       let images = [];
-
       if (typeof req.body.images === "string") {
         images.push(req.body.images);
       } else {

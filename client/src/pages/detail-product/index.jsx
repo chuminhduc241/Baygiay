@@ -1,12 +1,12 @@
-import Detail from 'components/modules/detail-product'
-import React from 'react'
+import Detail from "modules/detail-product";
+import React from "react";
 
-const DetailProductPage = () => {
+const DetailProduct = () => {
   return (
     <div>
-        <Detail />
+      <Detail />
     </div>
-  )
-}
+  );
+};
 
-export default DetailProductPage
+export default DetailProduct;

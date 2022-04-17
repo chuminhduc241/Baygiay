@@ -54,6 +54,7 @@ const productSchema = mongoose.Schema(
     ratings: {
       type: Number,
       default: 0,
+      // sum start
     },
   },
   {

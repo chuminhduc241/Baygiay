@@ -5,4 +5,9 @@ export class ProductService extends ServiceBase {
   getProducts = async (params) => {
     return await this.get("/getProducts");
   };
+  getProductById = async (params) => {
+    const { id } = params;
+    console.log(id);
+    return await this.get(`getProduct/${id}`);
+  };
 }

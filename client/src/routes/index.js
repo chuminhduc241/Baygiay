@@ -9,18 +9,22 @@ import PublicRoute from "./PublicRoute";
 import ActivationEmail from "pages/activationEmail";
 import NewProduct from "components/admin/NewProduct";
 import DetailProductPage from "pages/detail-product";
+import DetailProduct from "pages/detail-product";
 const AppRoutesComponent = () => {
   return (
     <div>
       <Switch>
         <PublicRoute path="/add" component={NewProduct} />
         <PublicRoute path={ROUTES.HOMEPAGE} exact component={Homepage} />
-        <PublicRoute path={ROUTES.DETAIL} exact component={} />
+        <PublicRoute path={ROUTES.DETAIL} exact component={DetailProduct} />
         <PublicRoute path={ROUTES.LOGIN} component={Login} />
         <PublicRoute path={ROUTES.ACTIVATION} component={ActivationEmail} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
         <PublicRoute path={ROUTES.REGISTER} component={Register} />
-        <PublicRoute path={ROUTES.DETAILPRODUCT} component={DetailProductPage} />
+        <PublicRoute
+          path={ROUTES.DETAILPRODUCT}
+          component={DetailProductPage}
+        />
       </Switch>
     </div>
   );

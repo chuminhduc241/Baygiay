@@ -25,7 +25,7 @@ const sendEmail = (to, url, txt) => {
     auth: {
       type: "OAuth2",
       user: SENDER_EMAIL_ADDRESS,
-      name: "TRAN HUU PHUOC",
+      name: "CHU MINH DUC",
       clientId: MAILING_SERVICE_CLIENT_ID,
       clientSecret: MAILING_SERVICE_CLIENT_SECRET,
       refreshToken: MAILING_SERVICE_REFRESH_TOKEN,

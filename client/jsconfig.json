@@ -8,6 +8,7 @@
             "pages/*": ["./pages/*"],
             "utils/*": ["./utils/*"],
             "styles/*": ["./styles/*"],
+            "modules/*": ["./modules/*"],
             "services/*": ["./services/*"],
             "constants/*": ["./constants/*"]
         }

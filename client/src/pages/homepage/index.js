@@ -1,10 +1,10 @@
-import Slide from "pages/modules/slide";
+import Slide from "modules/slide";
 import React from "react";
 import giay4 from "assets/images/giay4.jpg";
 import "./style.scss";
 import banner1 from "assets/images/banner1.jpg";
 import banner2 from "assets/images/banner2.jpg";
-import Products from "pages/modules/products";
+import Products from "modules/products";
 const Homepage = () => {
   return (
     <>

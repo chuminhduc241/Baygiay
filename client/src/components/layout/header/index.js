@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import logo from "../../../assets/images/logo-light.png";
 import "./style.scss";
 const Header = () => {
+  const ref = useRef();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === "/") {
+      ref.current.style.position = "absolute";
+    } else {
+      ref.current.style.background = "black";
+    }
+  }, [location]);
+  // useEffect(() => {
+  //   if (window.scrollY > 1000) {
+  //     ref.current.style.position = "fixed";
+  //     ref.current.style.background = "black";
+  //   }
+  // }, []);
   return (
-    <header className="header">
+    <header className="header" ref={ref}>
       <div className="grid wide">
         <div className="row">
           <div className="header-left col l-6 m-12 c-12">
