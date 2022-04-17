@@ -2,22 +2,23 @@ import { Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "../BreadCrumb";
 import TabProduct from "../tab-product";
-import SizeProduct from "./SizeProduct";
 import Slider from "react-slick";
 import "./style.scss";
 import { Image } from "antd";
 import { useParams } from "react-router-dom";
 import { ProductService } from "services/product-service";
-
+import { useDispatch } from "react-redux";
+import { addCart } from "redux/cartSlice";
+import popup from "components/common/Popup/index";
 const Detail = () => {
   const { id } = useParams();
   console.log(id);
   const [product, setProduct] = useState();
   const productService = new ProductService();
+  const dispatch = useDispatch();
   useEffect(() => {
     const getProduct = async () => {
       const res = await productService.getProductById({ id: id });
-      console.log(res);
       setProduct(res.product);
     };
     getProduct();
@@ -26,7 +27,7 @@ const Detail = () => {
     customPaging: function (i) {
       return (
         <a>
-          <img src={product.images[i].url} alt={product._id} />
+          <img src={product.images[i].url} alt={product.images[i].public_id} />
         </a>
       );
     },
@@ -39,12 +40,12 @@ const Detail = () => {
     autoplaySpeed: 3000,
     nextArrow: (
       <div>
-        <i class="fa fa-angle-right right"></i>
+        <i className="fa fa-angle-right right"></i>
       </div>
     ),
     prevArrow: (
       <div>
-        <i class="fa fa-angle-left left"></i>
+        <i className="fa fa-angle-left left"></i>
       </div>
     ),
   };
@@ -104,7 +105,18 @@ const Detail = () => {
     const number = Math.min(5, soLuong + 1);
     setSoLuong(number);
   };
-
+  const handleAddCart = () => {
+    if (!size) {
+      popup(
+        "Không thể thêm vào giỏ hàng",
+        "Vui lòng chọn kích cỡ sản phẩm",
+        "error"
+      );
+    } else {
+      dispatch(addCart({ product: { ...product, size }, quantity: soLuong }));
+      popup("Giỏ hàng", "Thêm vào giỏ hàng thành công", "success");
+    }
+  };
   return (
     <>
       <div className="grid wide pt-2 pb-2 mb-4 border-bottom">
@@ -178,9 +190,11 @@ const Detail = () => {
                   </button>
                 </div>
               </div>
-              <div class="button_actions">
-                <button type="submit" className="add_to_cart">
-                  <span className="text_1">Thêm vào giỏ hàng</span>
+              <div className="button_actions">
+                <button className="add_to_cart">
+                  <span className="text_1" onClick={handleAddCart}>
+                    Thêm vào giỏ hàng
+                  </span>
                 </button>
                 <a className="btn_call" href="/">
                   <span className="text_1">Mua Ngay</span>

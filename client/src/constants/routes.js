@@ -9,4 +9,6 @@ export const ROUTES = {
   ACTIVATION: "/auth/active-email/:activation_token",
   DETAILPRODUCT: "/detail-product",
   DETAIL: "/detail/:id",
+  CART: "/cart",
+  PRODUCTTYPE: "/product-type",
 };

@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material";
-import React, { useMemo } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
+import "./style.scss";
 const ProductItem = ({ product }) => {
   const formatter = new Intl.NumberFormat("vn");
   const showReview = (rating, numReviews) => {

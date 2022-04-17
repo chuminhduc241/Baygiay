@@ -65,7 +65,7 @@ const productCtrl = {
         .paginating();
       const products = await features.query;
       res.status(200).json({
-        result: lengthProduct.length,
+        count: lengthProduct.length,
         success: true,
         products,
       });

@@ -20,6 +20,7 @@ app.use(
 app.use("/api/auth", require("./routes/userRouter"));
 app.use("/api/", require("./routes/uploadRouter"));
 app.use("/api/", require("./routes/productRouter"));
+app.use("/api/", require("./routes/categoryRouter"));
 
 app.use("/", (req, res) => {
   res.json({ msg: "Hello everyone" });
