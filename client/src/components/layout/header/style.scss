@@ -4,6 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
+  height: 100px;
   z-index: 1000;
   .header-left {
     display: flex;
@@ -15,15 +16,10 @@
       }
     }
     .tab_menu {
-      ul {
-        margin-bottom: 0;
+      .nav {
         display: flex;
-        li {
-          padding: 5px 20px;
-          position: relative;
-          &:hover a::before {
-            display: block;
-          }
+        align-items: center;
+        &-item {
           a {
             color: #fff;
             text-transform: uppercase;
@@ -39,6 +35,30 @@
               bottom: 0;
               left: -20;
             }
+            &:hover a::before {
+              display: block;
+            }
+          }
+        }
+
+        &-item {
+          position: relative;
+          margin-left: 10px;
+          .submenu-wapper {
+            position: absolute;
+            width: 200px;
+            padding: 20px;
+            top: 100%;
+            left: 0px;
+            background-color: #fff;
+            color: black;
+            .submenu {
+              display: flex;
+              flex-direction: column;
+              a {
+                color: black;
+              }
+            }
           }
         }
       }
@@ -46,13 +66,13 @@
   }
   .header-right {
     display: flex;
+    height: 100px;
     justify-content: flex-end;
-    .icon {
-      padding: 10px 10px;
-      i {
-        font-size: 18px;
-        color: #fff;
-      }
+    align-items: center;
+    i {
+      font-size: 26px;
+      color: #fff;
+      display: block;
     }
   }
 }

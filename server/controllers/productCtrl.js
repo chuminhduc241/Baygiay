@@ -58,7 +58,7 @@ const productCtrl = {
         req.query
       ).filtering();
       const lengthProduct = await productLength.query;
-      console.log(lengthProduct);
+
       const features = new APIfeatures(Products.find(), req.query)
         .filtering()
         .sorting()

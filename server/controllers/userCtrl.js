@@ -209,7 +209,7 @@ const createRefreshToken = (payload) => {
 };
 const createActivationToken = (payload) => {
   return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, {
-    expiresIn: "10m",
+    expiresIn: "10h",
   });
 };
 module.exports = userCtrl;

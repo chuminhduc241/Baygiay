@@ -1,9 +1,11 @@
 import { Button } from "antd";
 import popup from "components/common/Popup/index";
-import { ROUTES } from "constants/routes";
+import { LOCAL_STORAGE } from "constants/localstorage";
 import { FastField, Form, Formik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { loginSuccess } from "redux/authSlice";
 import { AuthServices } from "services/auth-service";
 import * as Yup from "yup";
 import InputField from "../register/InputField";
@@ -14,6 +16,7 @@ const Login = () => {
     email: "",
     password: "",
   };
+  const dispatch = useDispatch();
   const history = useHistory();
   const SignupSchema = Yup.object().shape({
     email: Yup.string()
@@ -26,8 +29,13 @@ const Login = () => {
     try {
       console.log(values);
       const result = await authServices.login(values);
-      console.log(result);
+      localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN, result.accesstoken);
+      // const res = await authServices.refreshToken();
+      // console.log({ result, res });
+      localStorage.setItem(LOCAL_STORAGE.REFESH_TOKEN, result.accesstoken);
+      dispatch(loginSuccess());
       popup("Đăng nhập", "Đăng nhập thành công", "success");
+      history.push("/");
     } catch (err) {
       console.log(err.response.data);
       popup("Đăng nhập", `${err.response.data.msg}`, "error");

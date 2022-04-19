@@ -23,6 +23,34 @@ const Detail = () => {
     };
     getProduct();
   }, [id]);
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0 ? true : false}
+      type="button"
+    >
+      <i className="fa fa-angle-left left"></i>
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      }
+      aria-hidden="true"
+      aria-disabled={currentSlide === slideCount - 1 ? true : false}
+      type="button"
+    >
+      <i className="fa fa-angle-right right"></i>
+    </button>
+  );
+
   const settings = {
     customPaging: function (i) {
       return (
@@ -38,30 +66,22 @@ const Detail = () => {
     slidesToScroll: 1,
     infinite: false,
     autoplaySpeed: 3000,
-    nextArrow: (
-      <div>
-        <i className="fa fa-angle-right right"></i>
-      </div>
-    ),
-    prevArrow: (
-      <div>
-        <i className="fa fa-angle-left left"></i>
-      </div>
-    ),
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
   };
   const showReview = (rating, numReviews) => {
     const rate = rating / numReviews;
     if (numReviews > 0) {
       return (
         <>
-          <Rating name="read-only" value={rate} readOnly />
+          <Rating name="read-only" defaultValue={rate} readOnly />
           <span className="total-review">có {numReviews} Đánh giá</span>
         </>
       );
     } else {
       return (
         <>
-          <Rating name="read-only" value={5} readOnly />
+          <Rating name="read-only" defaultValue={5} readOnly />
           <span className="total-review">chưa có đánh giá</span>
         </>
       );
@@ -136,25 +156,25 @@ const Detail = () => {
             </div>
           </div>
           <div className="detail-prod col l-6 l-o-1">
-            <h1 class="title-product">{product?.name}</h1>
+            <h1 className="title-product">{product?.name}</h1>
             <div className="review-result">
               {showReview(product?.ratings, product?.numOfReviews)}
             </div>
-            <div class="group-status">
-              <span class="first_status">
+            <div className="group-status">
+              <span className="first_status">
                 Nhà sản xuất:
-                <span class="status_name">{product?.category}</span>
+                <span className="status_name">{product?.category}</span>
               </span>
-              <span class="first_status">
+              <span className="first_status">
                 &nbsp;|&nbsp; Tình trạng:
-                <span class="status_name">
+                <span className="status_name">
                   <span>Còn hàng</span>
                 </span>
               </span>
             </div>
             {loadPrice(product)}
             <div className="product-summary">
-              <div class="description">
+              <div className="description">
                 <ul>
                   <li>Dạng ổ cứng: Thiết bị lưu trữ mạng NAS</li>
                   <li>Dung lượng: 0 TB (Chưa bao gồm ổ cứng)</li>
@@ -167,7 +187,7 @@ const Detail = () => {
                 <span className="size-title">Kích cỡ</span>
                 {product?.size.map((s, i) => {
                   return (
-                    <div className="size-item">
+                    <div className="size-item" key={i}>
                       <span
                         onClick={() => setSize(s)}
                         className={s === size ? "size-item-active" : ""}
@@ -179,12 +199,12 @@ const Detail = () => {
                 })}
               </div>
               <div className="soluong">
-                <div class="label_sl">Số lượng:</div>
+                <div className="label_sl">Số lượng:</div>
                 <div className="custom">
                   <button type="button" onClick={preNumber}>
                     -
                   </button>
-                  <input type="text" value={soLuong} />
+                  <input type="text" defaultValue={soLuong} />
                   <button type="button" onClick={nextNumber}>
                     +
                   </button>

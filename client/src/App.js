@@ -6,14 +6,17 @@ import AppRoutesComponent from "./routes/index";
 import { Provider } from "react-redux";
 import { persistor, store } from "redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import Header from "components/layout/header";
+
+import AppContainer from "AppContainer";
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            <AppRoutesComponent />
+            <AppContainer>
+              <AppRoutesComponent />
+            </AppContainer>
           </Router>
         </PersistGate>
       </Provider>

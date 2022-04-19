@@ -9,9 +9,18 @@ cloudinary.config({
 const uploadCtrl = {
   uploadAvatar: async (req, res) => {
     try {
-      const file = req.files.file;
+      console.log("vao");
+      const file = req.body.avatar;
+      // const file = "";
+      // console.log(req.body.avatar);
+      // // if (typeof req.body.avatar === "string") {
+      // //   file.push(req.body.avatar);
+      // // } else {
+      // //   file = req.body.avatar;
+      // // }
+
       cloudinary.v2.uploader.upload(
-        file.tempFilePath,
+        file,
         {
           folder: "avatar",
         },
@@ -19,7 +28,6 @@ const uploadCtrl = {
           if (err) {
             console.log(err.message);
           }
-          removeTmp(file.tempFilePath);
           console.log({ url: result.secure_url });
           res.json({ url: result.secure_url });
         }

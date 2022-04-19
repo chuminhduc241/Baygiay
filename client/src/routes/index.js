@@ -12,7 +12,7 @@ import DetailProductPage from "pages/detail-product";
 import DetailProduct from "pages/detail-product";
 import ProductByNSX from "pages/productByNSX";
 import Cart from "pages/cart/CartItem";
-import Profile from "pages/Profile";
+import Profile from "pages/profile";
 const AppRoutesComponent = () => {
   return (
     <div>

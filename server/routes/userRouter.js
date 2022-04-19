@@ -5,7 +5,7 @@ const userCtrl = require("../controllers/userCtrl");
 router.post("/register", userCtrl.register);
 router.post("/activation", userCtrl.activeEmail);
 router.post("/login", userCtrl.login);
-router.post("/refresh_token", userCtrl.refeshToken);
+router.get("/refresh_token", userCtrl.refeshToken);
 router.post("/forgot", userCtrl.forgotPassword);
 router.post("/reset", auth, userCtrl.resetPassword);
 router.post("/update", auth, userCtrl.updateUser);

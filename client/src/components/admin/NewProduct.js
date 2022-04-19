@@ -8,8 +8,8 @@ const NewProduct = () => {
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
-  const [size, setSize] = useState([]);
-  const [color, setColor] = useState([]);
+  // const [size, setSize] = useState([]);
+  // const [color, setColor] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
   const handleSubmit = async () => {
     const newproduct = {

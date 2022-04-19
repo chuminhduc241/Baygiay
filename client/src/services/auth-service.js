@@ -19,7 +19,7 @@ export class AuthServices extends ServiceBase {
     });
   };
   refreshToken = async (params) => {
-    return await this.post("/auth/refesh-token", { refeshToken: params });
+    return await this.get("/auth/refresh_token", { withCredentials: true });
   };
   logout = async (params) => {
     return await this.post("/auth/logout", { refeshToken: params });
